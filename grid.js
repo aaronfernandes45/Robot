@@ -49,13 +49,27 @@ Grid.prototype.check = function(clickedSquare, color){
 
 Grid.prototype.update = function(clickedSquare, orb){
 	console.log("In grid update");
+	console.log("cur location"+clickedSquare);
 	if(this.gridStructure[clickedSquare[0]][clickedSquare[1]].length == 0)
 	{
+	console.log("In IF loop of update");
 	this.gridStructure[clickedSquare[0]][clickedSquare[1]].push(orb);  //had an =1   ??
-	console.log("Pushing Orb to empty square "+clickedSquare);
+	console.log("Pushed Orb to empty square "+clickedSquare);
 	}
-	else
-		grid.checkSquareType(clickedSquare, orb);
+	else{//this part changed
+		console.log("Pushing orb to unempty square"+clickedSquare);
+		//var popObj = grid.gridStructure[clickedSquare[0]][clickedSquare[1]].pop();
+		//if (popObj.color == orb.color)
+		//{
+			//grid.gridStructure[clickedSquare[0]][clickedSquare[1]].push(orb);
+			grid.checkSquareType(clickedSquare, orb);
+				
+		//}
+		//else
+		//{
+			//console.log("Can't add.. colours don't match");
+		//}
+	}
 
 }
 
@@ -89,20 +103,20 @@ Grid.prototype.corner = function(clickedSquare, orb){
 	if (clickedSquare[0] == 0){
 		if (clickedSquare[1] == 0){
 			var popObj = grid.gridStructure[clickedSquare[0]][clickedSquare[1]].pop();
-			grid.update([clickedSquare[0], clickedSquare[1]+1], popObj);
-			grid.update([clickedSquare[0]+1, clickedSquare[1]], orb);
+			grid.update([clickedSquare[0], Number(clickedSquare[1])+1], popObj);
+			grid.update([Number(clickedSquare[0])+1, clickedSquare[1]], orb);
 		}
 		else{
 			var popObj = grid.gridStructure[clickedSquare[0]][clickedSquare[1]].pop();
-			grid.update([clickedSquare[0]+1, clickedSquare[1]], popObj);
-			grid.update([clickedSquare[0], clickedSquare[1]-1], orb);
+			grid.update([Number(clickedSquare[0])+1, clickedSquare[1]], popObj);
+			grid.update([clickedSquare[0], Number(clickedSquare[1])-1], orb);
 		}
 	}
 	else{
 		if(clickedSquare[1] == 0){
 			var popObj = grid.gridStructure[clickedSquare[0]][clickedSquare[1]].pop();
-			grid.update([clickedSquare[0], clickedSquare[1]+1], popObj);
-			grid.update([clickedSquare[0]-1, clickedSquare[1]], orb);
+			grid.update([clickedSquare[0], Number(clickedSquare[1])+1], popObj);
+			grid.update([Number(clickedSquare[0])-1, clickedSquare[1]], orb);
 		}
 		else{
 			var popObj = grid.gridStructure[clickedSquare[0]][clickedSquare[1]].pop();
@@ -162,10 +176,10 @@ Grid.prototype.middle = function(clickedSquare, orb){
 		var popObj = grid.gridStructure[clickedSquare[0]][clickedSquare[1]].pop();
 		var popObj1 = grid.gridStructure[clickedSquare[0]][clickedSquare[1]].pop();
 		var popObj2 = grid.gridStructure[clickedSquare[0]][clickedSquare[1]].pop();
-		grid.update([clickedSquare[0], clickedSquare[1]-1], orb);
-		grid.update([clickedSquare[0], clickedSquare[1]+1], popObj);
-		grid.update([clickedSquare[0]+1, clickedSquare[1]], popObj1);
-		grid.update([clickedSquare[0]-1, clickedSquare[1]], popObj2);
+		grid.update([clickedSquare[0], Number(clickedSquare[1])-Number(1)], popObj);
+		grid.update([clickedSquare[0], Number(clickedSquare[1])+Number(1)], orb);
+		grid.update([Number(clickedSquare[0])+Number(1), clickedSquare[1]], popObj1);
+		grid.update([Number(clickedSquare[0])-Number(1), clickedSquare[1]], popObj2);
 	}
 }
 
