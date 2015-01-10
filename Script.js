@@ -23,7 +23,6 @@ Robot.prototype.move = function(direction) {
 
 
 
-
 function Grid(x,y) {
   this.maxX = x;
   this.maxY = y;
@@ -44,29 +43,18 @@ Grid.prototype.checkBoundary = function(position, direction){
   
 }
 
-
-
 var robot = new Robot();
 var grid = new Grid(8,8);
 
-function userInput() {
-  var cont = true;
-  while (cont) {
-    var direction = prompt("Left, Right, Up, Down, Stop");
-    if (direction == "stop") {
-      cont = false;
-    } else {
-      var position = robot.move(direction);
+
+// userInput();
+
+function movePosition(direction){
+       var position = robot.move(direction);
       if (!position) {
-        console.log("Can't move");
-        break;
+        alert("Can't move");
       } else {
-        console.log(position);
+         document.getElementById("demo").innerHTML = "Position :"+position;
       }
     }
 
-
-  }
-}
-
-userInput();
