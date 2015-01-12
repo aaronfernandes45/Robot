@@ -136,25 +136,25 @@ Grid.prototype.edge = function(clickedSquare, orb, r){
 			if(clickedSquare[0] == 0){
 				var popObj = grid.gridStructure[clickedSquare[0]][clickedSquare[1]].pop();
 				var popObj1 = grid.gridStructure[clickedSquare[0]][clickedSquare[1]].pop();
-				grid.update([clickedSquare[0]+1, clickedSquare[1]], orb);
-				grid.update([clickedSquare[0], clickedSquare[1]+1], popObj);
-				grid.update([clickedSquare[0], clickedSquare[1]-1], popObj1);
+				grid.update([Number(clickedSquare[0])+1, clickedSquare[1]], orb);
+				grid.update([clickedSquare[0], Number(clickedSquare[1])+1], popObj);
+				grid.update([clickedSquare[0], Number(clickedSquare[1])-1], popObj1);
 			}
 			else{
 				var popObj = grid.gridStructure[clickedSquare[0]][clickedSquare[1]].pop();
 				var popObj1 = grid.gridStructure[clickedSquare[0]][clickedSquare[1]].pop();
-				grid.update([clickedSquare[0]-1, clickedSquare[1]], orb);
-				grid.update([clickedSquare[0], clickedSquare[1]+1], popObj);
-				grid.update([clickedSquare[0], clickedSquare[1]-1], popObj1);
+				grid.update([Number(clickedSquare[0])-1, clickedSquare[1]], orb);
+				grid.update([clickedSquare[0], Number(clickedSquare[1])+1], popObj);
+				grid.update([clickedSquare[0], Number(clickedSquare[1])-1], popObj1);
 			}
 		}
 		else{
 			if(clickedSquare[1] == 0){
 				var popObj = grid.gridStructure[clickedSquare[0]][clickedSquare[1]].pop();
 				var popObj1 = grid.gridStructure[clickedSquare[0]][clickedSquare[1]].pop();
-				grid.update([clickedSquare[0], clickedSquare[1]+1], orb);
-				grid.update([clickedSquare[0]+1, clickedSquare[1]], popObj);
-				grid.update([clickedSquare[0]-1, clickedSquare[1]], popObj1);
+				grid.update([clickedSquare[0], Number(clickedSquare[1])+1], orb);
+				grid.update([Number(clickedSquare[0])+1, clickedSquare[1]], popObj);
+				grid.update([Number(clickedSquare[0])-1, clickedSquare[1]], popObj1);
 			}
 			else{
 				var popObj = grid.gridStructure[clickedSquare[0]][clickedSquare[1]].pop();
