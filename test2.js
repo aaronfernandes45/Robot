@@ -1,37 +1,30 @@
-function control()
+
+var count = 0;
+
+function control(coord)
 {
-	var choice = "1";
-	while(choice!="3")
+	if((count % 2)==0)
 	{
-	choice = prompt("1.player1\n2.player2\n3.exit");
-	switch(choice)
+		console.log("BEFORE PLAYER1");
+		var retval = player1.add(coord);
+		if(retval)
+		{
+			count += 1;
+		}
+		console.log("AFTER PLAYER1... BEFORE DISPLAY");
+		display();
+		console.log("Call mDown");
+	}
+	else
 	{
-		case "1":
+		var retval = player2.add(coord);
+		if(retval)
 		{
-			var a = prompt("x co ord");
-			var b = prompt("y co ord");
-			player1.add([a,b]);
-			display();
-			mDown();
-			break;
+			count += 1;
 		}
-		case "2":
-		{
-			var a = prompt("x co ord");
-			var b = prompt("y co ord");
-			player2.add([a,b]);
-			display();
-			mDown();
-			break;
-		}
-		default:
-		{
-			display();
-			mDown();
-			break;
-		}
+		display();
 	}
-	}
+	
 }
 
 
@@ -49,15 +42,32 @@ function display()
 	}
 }
 
-control();
+
 
 
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
+function showCoords(event) 
+{
+    console.log("In onclick handler");
+    var x = event.clientX;
+    var y = event.clientY;
+    var coords = "X coords: " + x + ", Y coords: " + y;
+    console.log(coords);
+    control([Math.floor(x/100),Math.floor(y/100)]);
+    console.log([Math.floor((y-10)/100),Math.floor((x-10)/100)]);
+}
+
+
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+display();
+
 function mDown()
 {
+	showCoords(event);
 	var c = document.getElementById("myCanvas");
 	var ctx = c.getContext("2d");
 	ctx.font = "12px Ariel";

@@ -50,6 +50,8 @@ Grid.prototype.check = function(clickedSquare, color){
 Grid.prototype.update = function(clickedSquare, orb){
 	console.log("In grid update");
 	console.log("cur location"+clickedSquare);
+	if((clickedSquare[0]<4) && (clickedSquare[1]<4))
+	{
 	if(this.gridStructure[clickedSquare[0]][clickedSquare[1]].length == 0)
 	{
 	console.log("In IF loop of update");
@@ -70,6 +72,7 @@ Grid.prototype.update = function(clickedSquare, orb){
 			//console.log("Can't add.. colours don't match");
 		//}
 	}
+}
 
 }
 
@@ -203,6 +206,11 @@ Player.prototype.add= function(clickedSquare)
 	if(grid.check(clickedSquare, this.color)){
 		var orb = new Orb(this.color);
 		grid.update(clickedSquare, orb);
+		return true;   //value added
+	}
+	else 
+	{
+		return false;   //value added
 	}
 }
 
