@@ -98,12 +98,12 @@ function mDown()
 		for(var j=0; j<4; j++)
 		{
 			ctx.textAlign = "start";
-			ctx.fillText(grid.gridStructure[i][j].length, (10+(100*j)), ((i*100)+50));
+			ctx.fillText(grid.gridStructure[i][j].length, (10+(100*i)), ((j*100)+50));  //changed here
 
 			if(grid.gridStructure[i][j].length > 0)
 			{
 				var popObj = grid.gridStructure[i][j].pop();
-				ctx.fillText(popObj.color, (10+(100*j)), ((i*100)+65));
+				ctx.fillText(popObj.color, (10+(100*i)), ((j*100)+65));
 				console.log(popObj.color);
 				grid.gridStructure[i][j].push(popObj);
 			}

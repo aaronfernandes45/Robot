@@ -1,6 +1,6 @@
 function Grid(x,y){ // x and y are dimensions of the grid
-	this.xPosition = x;
-	this.YPosition = y;
+	this.xPosition = x-1;
+	this.YPosition = y-1;
 	this.gridStructure;
 
 	//this.gridStructure = [[[0,1],[0,1],[0,1],[0,1]],[0,1,2,3],[0,1,2,3],[0,1,2,3]];
@@ -64,6 +64,15 @@ Grid.prototype.update = function(clickedSquare, orb){
 		//if (popObj.color == orb.color)
 		//{
 			//grid.gridStructure[clickedSquare[0]][clickedSquare[1]].push(orb);
+			var ob;
+			console.log("BEFORE FOR LOOP");
+			for(ob=0; ob<this.gridStructure[clickedSquare[0]][clickedSquare[1]].length; ob+=1)
+			{
+				console.log("COLOR BEFORE CHANGING" + this.gridStructure[clickedSquare[0]][clickedSquare[1]][ob].color);
+				this.gridStructure[clickedSquare[0]][clickedSquare[1]][ob].color = orb.color;
+				console.log("COLOR  AFTER CHANGING" + this.gridStructure[clickedSquare[0]][clickedSquare[1]][ob].color);
+			}
+			console.log("AFTER FOR LOOP");
 			grid.checkSquareType(clickedSquare, orb);
 				
 		//}
