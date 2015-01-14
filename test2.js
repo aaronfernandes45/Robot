@@ -135,7 +135,28 @@ function display()
 			if(grid.gridStructure[i][j].length > 0)
 			{
 				var popObj = grid.gridStructure[i][j].pop();
+				
+				
 				ctx.fillStyle = popObj.color;
+				ctx.fillRect((i*100), (j*100), 100, 100);
+				ctx.fillText(popObj.color, (10+(100*i)), ((j*100)+65));
+				console.log(popObj.color);
+				grid.gridStructure[i][j].push(popObj);
+			}
+			ctx.fillText(grid.gridStructure[i][j].length, (10+(100*i)), ((j*100)+50));
+		}
+	}
+
+	for(var i=0; i<=grid.yPosition; i++)
+	{
+		for(var j=0; j<=grid.xPosition; j++)
+		{
+			ctx.textAlign = "start";
+			//ctx.fillText(grid.gridStructure[i][j].length, (10+(100*i)), ((j*100)+50));
+			if(grid.gridStructure[i][j].length > 0)
+			{
+				var popObj = grid.gridStructure[i][j].pop();
+				ctx.fillStyle = "black";
 				ctx.fillText(popObj.color, (10+(100*i)), ((j*100)+65));
 				console.log(popObj.color);
 				grid.gridStructure[i][j].push(popObj);
