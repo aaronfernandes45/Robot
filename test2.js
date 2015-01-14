@@ -35,6 +35,7 @@ function control(coord)
 function endConditionTest()
 {
 	//alert("count is" + " " + count);
+	display();
 	if(Number(count) != 1)
 	{
 		if(Number(count) != 0)
@@ -84,44 +85,6 @@ function endConditionTest()
 
 function display()
 {
-	var i;
-	var j;
-	for(i=0;i<4;i++)
-	{
-		for(j=0;j<4;j++)
-		{
-			console.log("\t"+grid.gridStructure[i][j].length);
-		}
-		console.log("\n");
-	}
-}
-
-
-
-
-
-//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-
-function showCoords(event) 
-{
-    //console.log("In onclick handler");
-    var x = event.clientX;
-    var y = event.clientY;
-    var coords = "X coords: " + x + ", Y coords: " + y;
-    console.log(coords);
-    control([Math.floor(x/100),Math.floor(y/100)]);
-    console.log([Math.floor((y-10)/100),Math.floor((x-10)/100)]);
-}
-
-
-//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-display();
-
-function mDown()
-{
-	showCoords(event);
 	var c = document.getElementById("myCanvas");
 	var ctx = c.getContext("2d");
 	ctx.font = "12px Ariel";
@@ -164,4 +127,33 @@ function mDown()
 		}
 	}
 	console.log("bdhjgde");
+}
+
+
+
+
+
+
+
+
+function showCoords(event) 
+{
+    //console.log("In onclick handler");
+    var x = event.clientX;
+    var y = event.clientY;
+    var coords = "X coords: " + x + ", Y coords: " + y;
+    console.log(coords);
+    control([Math.floor(x/100),Math.floor(y/100)]);
+    console.log([Math.floor((y-10)/100),Math.floor((x-10)/100)]);
+}
+
+
+
+
+display();
+
+function mDown()
+{
+	showCoords(event);
+	display();
 }
