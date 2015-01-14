@@ -5,19 +5,23 @@ function control(coord)
 {
 	if((count % 2)==0)
 	{
-		console.log("BEFORE PLAYER1");
 		var retval = player1.add(coord);
+		endConditionTest();
+		
+		
 		if(retval)
 		{
 			count += 1;
 		}
-		console.log("AFTER PLAYER1... BEFORE DISPLAY");
+		//console.log("AFTER PLAYER1... BEFORE DISPLAY");
 		display();
-		console.log("Call mDown");
+		//console.log("Call mDown");
 	}
 	else
 	{
 		var retval = player2.add(coord);
+		endConditionTest();
+		
 		if(retval)
 		{
 			count += 1;
@@ -25,6 +29,56 @@ function control(coord)
 		display();
 	}
 	
+}
+
+
+function endConditionTest()
+{
+	//alert("count is" + " " + count);
+	if(Number(count) != 1)
+	{
+		if(Number(count) != 0)
+		{
+			var redCount = 0;
+			var blueCount = 0;
+			for(var i=0; i<=grid.xPosition; i++)
+			{
+				//alert("grid.xPosition" + "is" + grid.xPosition + "\n" + "grid.yPosition" + "is" + grid.yPosition);
+				for(var j=0; j<=grid.yPosition; j++)
+				{
+					//alert("Inside both for loops");
+					if(grid.gridStructure[i][j].length > 0)
+					{
+						//alert("length of" + i + "," + j + "is" + grid.gridStructure[i][j].length)
+						var popObj = grid.gridStructure[i][j].pop();
+						if(popObj.color == "red")
+						{
+							redCount+=1;
+						}
+						else
+						{
+							blueCount+=1;
+						}
+						grid.gridStructure[i][j].push(popObj);
+					}
+					
+				}
+			}
+			//alert("RED COUNT IS" + redCount + "\n" + "BLUE COUNT IS" + blueCount);
+			if(blueCount == 0)
+			{
+				alert("Red Player wins");
+			}
+			else
+			{
+				if(redCount == 0)
+				{
+					alert("Blue Player wins");
+				}
+			}
+		}
+	}
+
 }
 
 
@@ -51,7 +105,7 @@ function display()
 
 function showCoords(event) 
 {
-    console.log("In onclick handler");
+    //console.log("In onclick handler");
     var x = event.clientX;
     var y = event.clientY;
     var coords = "X coords: " + x + ", Y coords: " + y;

@@ -1,6 +1,6 @@
 function Grid(x,y){ // x and y are dimensions of the grid
 	this.xPosition = x-1;
-	this.YPosition = y-1;
+	this.yPosition = y-1;
 	this.gridStructure;
 
 	//this.gridStructure = [[[0,1],[0,1],[0,1],[0,1]],[0,1,2,3],[0,1,2,3],[0,1,2,3]];
@@ -19,26 +19,21 @@ function Grid(x,y){ // x and y are dimensions of the grid
 
 Grid.prototype.check = function(clickedSquare, color){
 	console.log("Current Location:"+clickedSquare);
-	console.log("Checking availability of square");
-	// console.log(clickedSquare[0]);
-	// console.log(clickedSquare[1])
-	// console.log(clickedSquare.length);
-	// console.log(this.gridStructure[0][0][0]);
-	// console.log(this.gridStructure[0][0][1]);
-	// console.log(this.gridStructure);
+	//console.log("Checking availability of square");
+	
 		if(this.gridStructure[clickedSquare[0]][clickedSquare[1]].length == 0){
-		console.log("Square available (It's empty)");
+		//console.log("Square available (It's empty)");
 		return true;
 	}
 	else{
 		var popObj = grid.gridStructure[clickedSquare[0]][clickedSquare[1]].pop();
 		if(/*this.gridStructure[clickedSquare[0]][clickedSquare[1]].color*/popObj.color == color){
 		  this.gridStructure[clickedSquare[0]][clickedSquare[1]].push(popObj);
-		  console.log("Square available (Not empty but of same orb color");
+		  //console.log("Square available (Not empty but of same orb color");
 			return true;
 		}
 		else{
-			console.log("Square unavailable");
+			//console.log("Square unavailable");
 			this.gridStructure[clickedSquare[0]][clickedSquare[1]].push(popObj);
 			return false;
 		}
@@ -54,25 +49,25 @@ Grid.prototype.update = function(clickedSquare, orb){
 	{
 	if(this.gridStructure[clickedSquare[0]][clickedSquare[1]].length == 0)
 	{
-	console.log("In IF loop of update");
+	//console.log("In IF loop of update");
 	this.gridStructure[clickedSquare[0]][clickedSquare[1]].push(orb);  //had an =1   ??
-	console.log("Pushed Orb to empty square "+clickedSquare);
+	//console.log("Pushed Orb to empty square "+clickedSquare);
 	}
 	else{//this part changed
-		console.log("Pushing orb to unempty square"+clickedSquare);
+		//console.log("Pushing orb to unempty square"+clickedSquare);
 		//var popObj = grid.gridStructure[clickedSquare[0]][clickedSquare[1]].pop();
 		//if (popObj.color == orb.color)
 		//{
 			//grid.gridStructure[clickedSquare[0]][clickedSquare[1]].push(orb);
 			var ob;
-			console.log("BEFORE FOR LOOP");
+			//console.log("BEFORE FOR LOOP");
 			for(ob=0; ob<this.gridStructure[clickedSquare[0]][clickedSquare[1]].length; ob+=1)
 			{
-				console.log("COLOR BEFORE CHANGING" + this.gridStructure[clickedSquare[0]][clickedSquare[1]][ob].color);
+				//console.log("COLOR BEFORE CHANGING" + this.gridStructure[clickedSquare[0]][clickedSquare[1]][ob].color);
 				this.gridStructure[clickedSquare[0]][clickedSquare[1]][ob].color = orb.color;
-				console.log("COLOR  AFTER CHANGING" + this.gridStructure[clickedSquare[0]][clickedSquare[1]][ob].color);
+				//console.log("COLOR  AFTER CHANGING" + this.gridStructure[clickedSquare[0]][clickedSquare[1]][ob].color);
 			}
-			console.log("AFTER FOR LOOP");
+			//console.log("AFTER FOR LOOP");
 			grid.checkSquareType(clickedSquare, orb);
 				
 		//}
@@ -251,7 +246,7 @@ function controller()
  // 		//
  // 		//
  // 	}
- console.log("in controller");
+ //console.log("in controller");
  
 
 
