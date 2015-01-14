@@ -6,6 +6,7 @@ function control(coord)
 	if((count % 2)==0)
 	{
 		var retval = player1.add(coord);
+		//alert("calling end cond");
 		endConditionTest();
 		
 		
@@ -32,9 +33,10 @@ function control(coord)
 }
 
 
-function endConditionTest()
+function endConditionTest(orb)
 {
 	//alert("count is" + " " + count);
+	//alert("in endConditionTest");
 	display();
 	if(Number(count) != 1)
 	{
@@ -63,6 +65,33 @@ function endConditionTest()
 						grid.gridStructure[i][j].push(popObj);
 					}
 					
+				}
+			}
+			// if(grid.update.popObj)
+			// 		{
+			// 		if(popObj.color=="blue") {blueCount+=1;}
+			// 		if(popObj.color=="red") {redCount+=1;}
+			// 		}
+			// if(grid.update.popObj1)
+			// 		{
+			// 		if(popObj1.color=="blue") {blueCount+=1;}
+			// 		if(popObj1.color=="red") {redCount+=1;}
+			// 		}
+			// if(grid.update.popObj2)
+			// 		{
+			// 		if(popObj2.color=="blue") {blueCount+=1;}
+			// 		if(popObj2.color=="red") {redCount+=1;}
+			// 		}
+
+			if(orb)
+			{
+				if(orb.color == "red")
+				{
+					redCount+=1;
+				}
+				if(orb.color == "blue")
+				{
+					blueCount+=1;
 				}
 			}
 			//alert("RED COUNT IS" + redCount + "\n" + "BLUE COUNT IS" + blueCount);

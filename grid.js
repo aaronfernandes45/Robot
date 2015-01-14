@@ -46,7 +46,7 @@ Grid.prototype.update = function(clickedSquare, orb){
 	console.log("In grid update");
 	console.log("cur location"+clickedSquare);
 	display();
-	endConditionTest();
+	endConditionTest(orb);
 	if((clickedSquare[0]<4) && (clickedSquare[1]<4))
 	{
 	if(this.gridStructure[clickedSquare[0]][clickedSquare[1]].length == 0)
