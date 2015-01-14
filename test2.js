@@ -88,9 +88,9 @@ function display()
 	var c = document.getElementById("myCanvas");
 	var ctx = c.getContext("2d");
 	ctx.font = "12px Ariel";
-	for(var i=0; i<4; i++)
+	for(var i=0; i<=grid.yPosition; i++)
 	{
-		for(var j=0; j<4; j++)
+		for(var j=0; j<=grid.xPosition; j++)
 		{
 			ctx.clearRect((0+(j*100)), (0+(i*100)), 100, 100);
 		}
@@ -110,9 +110,9 @@ function display()
 		ctx.stroke();
 	}
 
-	for(var i=0; i<4; i++)
+	for(var i=0; i<=grid.yPosition; i++)
 	{
-		for(var j=0; j<4; j++)
+		for(var j=0; j<=grid.xPosition; j++)
 		{
 			ctx.textAlign = "start";
 			ctx.fillText(grid.gridStructure[i][j].length, (10+(100*i)), ((j*100)+50));  //changed here
