@@ -1,16 +1,38 @@
-function Grid(){ // x and y are dimensions of the grid
-	this.xPosition=1;
-	this.yPosition=1;
+function Grid(rows, columns){ // x and y are dimensions of the grid
+	this.rows=1;
+	this.columns=1;
 	this.gridStructure;
+
+	if(rows){
+		this.rows = rows;
+	}else{
+		this.rows = 8;
+	}
+
+	if(columns){
+		this.columns = columns;
+	}else{
+		this.columns = 8;
+	}
+
+	for(i = 0; i < this.rows; i++){
+		this.gridStructure[i] = [];
+
+		for(j = 0; j < this.columns; j++){
+			this.gridStructure[i][j] = [];
+		}
+	}
+
+
 
 	//this.gridStructure = [[[0,1],[0,1],[0,1],[0,1]],[0,1,2,3],[0,1,2,3],[0,1,2,3]];
 
-	this.gridStructure = [[[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]]];
+	// this.gridStructure = [[[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]]];
 
-	// this.gridStructure = new Array(this.yPosition);
-	// for(var i = 0; i < this.yPosition; i++){
-	// 	this.gridStructure[i] = new Array(this.xPosition);
-	// 	for(var j = 0; j < this.xPosition; j++){
+	// this.gridStructure = new Array(this.columns);
+	// for(var i = 0; i < this.columns; i++){
+	// 	this.gridStructure[i] = new Array(this.rows);
+	// 	for(var j = 0; j < this.rows; j++){
 	// 		this.gridStructure[i][j] = [];
 	// 	}
 	// }
@@ -50,7 +72,7 @@ Grid.prototype.update = function(clickedSquare, orb){
 	console.log("cur location"+clickedSquare);
 	display();
 	endConditionTest(orb);
-	if((clickedSquare[0]<=grid.xPosition) && (clickedSquare[1]<=grid.yPosition))
+	if((clickedSquare[0]<=grid.rows) && (clickedSquare[1]<=grid.columns))
 	{
 	if(this.gridStructure[clickedSquare[0]][clickedSquare[1]].length == 0)
 	{
@@ -90,9 +112,9 @@ Grid.prototype.checkSquareType = function(clickedSquare, orb)
 {
 	if(test)
 	{
-	if ((clickedSquare[0] == 0) || (clickedSquare[0] == this.xPosition) || (clickedSquare[0] == this.yPosition))
+	if ((clickedSquare[0] == 0) || (clickedSquare[0] == this.rows) || (clickedSquare[0] == this.columns))
 	{
-		if ((clickedSquare[1] == 0) || (clickedSquare[1] == this.xPosition) || (clickedSquare[1] == this.yPosition))
+		if ((clickedSquare[1] == 0) || (clickedSquare[1] == this.rows) || (clickedSquare[1] == this.columns))
 		{
 			grid.corner(clickedSquare, orb);
 		}
@@ -101,7 +123,7 @@ Grid.prototype.checkSquareType = function(clickedSquare, orb)
 	}
 	else 
 	{
-		if ((clickedSquare[1] == 0) || (clickedSquare[1] == this.xPosition) || (clickedSquare[1] == this.yPosition))
+		if ((clickedSquare[1] == 0) || (clickedSquare[1] == this.rows) || (clickedSquare[1] == this.columns))
 		{
 			grid.edge(clickedSquare, orb, 2);
 		}
@@ -277,8 +299,8 @@ function controller()
 
 
 
- // for(i=0;i<grid.xPosition;i++)
- // 	for(j=0;j<grid.yPosition;j++)
+ // for(i=0;i<grid.rows;i++)
+ // 	for(j=0;j<grid.columns;j++)
  // 		console.log(grid.gridStructure[i][j].length);
 
 }

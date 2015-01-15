@@ -37,7 +37,7 @@ funtion controller()
  // 		//
  // 	}
  player1.add([2,2]);
- for(i=0;i<yPosition;i++)
- 	for(j=0;j<xPosition;j++)
+ for(i=0;i<columns;i++)
+ 	for(j=0;j<rows;j++)
  		console.log(gridStructure[i][j].length);
 }

@@ -89,8 +89,8 @@ switch(choice)
 
 }
 
-// for(i=0;i<grid.xPosition;i++)
-// 	for(j=0;j<grid.yPosition;j++)
+// for(i=0;i<grid.rows;i++)
+// 	for(j=0;j<grid.columns;j++)
 // 		alert(grid.gridStructure[i][j].length);
 }
 controller();
