@@ -37,7 +37,9 @@ function endConditionTest(orb)
 {
 	//alert("count is" + " " + count);
 	//alert("in endConditionTest");
-	display();
+	//display();
+	if(test)
+	{
 	if(Number(count) != 1)
 	{
 		if(Number(count) != 0)
@@ -82,6 +84,7 @@ function endConditionTest(orb)
 			//alert("RED COUNT IS" + redCount + "\n" + "BLUE COUNT IS" + blueCount);
 			if(blueCount == 0)
 			{
+				display();
 				alert("Red Player wins");
 				test = false;
 			}
@@ -89,13 +92,14 @@ function endConditionTest(orb)
 			{
 				if(redCount == 0)
 				{
+					display();
 					alert("Blue Player wins");
 					test = false;
 				}
 			}
 		}
 	}
-
+}
 }
 
 
@@ -112,14 +116,14 @@ function display()
 		}
 	}
 
-	for(var i=0; i<400; i+=100)
+	for(var i=0; i<=400; i+=100)
 	{
 		ctx.moveTo(0,i);
 		ctx.lineTo(400,i);
 		ctx.stroke();
 	}
 
-	for(var j=0; j<400; j+=100)
+	for(var j=0; j<=400; j+=100)
 	{
 		ctx.moveTo(j,0);
 		ctx.lineTo(j,400);
@@ -138,7 +142,7 @@ function display()
 				
 				
 				ctx.fillStyle = popObj.color;
-				ctx.fillRect((i*100), (j*100), 100, 100);
+				ctx.fillRect((i*100)+5, (j*100)+5, 90, 90);
 				ctx.fillText(popObj.color, (10+(100*i)), ((j*100)+65));
 				console.log(popObj.color);
 				grid.gridStructure[i][j].push(popObj);
@@ -156,7 +160,7 @@ function display()
 			if(grid.gridStructure[i][j].length > 0)
 			{
 				var popObj = grid.gridStructure[i][j].pop();
-				ctx.fillStyle = "black";
+				ctx.fillStyle = "#000000";
 				ctx.fillText(popObj.color, (10+(100*i)), ((j*100)+65));
 				console.log(popObj.color);
 				grid.gridStructure[i][j].push(popObj);
@@ -176,9 +180,9 @@ function display()
 
 function showCoords(event) 
 {
-    //console.log("In onclick handler");
-    var x = event.clientX;
-    var y = event.clientY - 77;
+    console.log("In onclick handler");
+    var x = window.event.clientX - 100; //var x = event.clientX - 100;
+    var y = window.event.clientY - 77;
     var coords = "X coords: " + x + ", Y coords: " + y;
     console.log(coords);
     control([Math.floor(x/100),Math.floor(y/100)]);
@@ -194,7 +198,13 @@ function mDown()
 {
 	if(test)
 	{
-		showCoords(event);
+		showCoords();
+		// var x = event.clientX - 100; //var x = event.clientX - 100;
+  //   var y = event.clientY - 77;
+  //   var coords = "X coords: " + x + ", Y coords: " + y;
+  //   console.log(coords);
+  //   control([Math.floor(x/100),Math.floor(y/100)]);
+  //   console.log([Math.floor((y-10)/100),Math.floor((x-10)/100)]);
 		display();
 	}
 }

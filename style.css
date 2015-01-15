@@ -7,8 +7,13 @@
 	font-size: 30px;
 }
 
-h1.head-info
+.head-info
 {
 	background-color: #d4f1cc;
 	text-align: center;
+}
+
+.padding
+{
+	padding-left: 100px;
 }

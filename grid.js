@@ -17,6 +17,7 @@ function Grid(x,y){ // x and y are dimensions of the grid
 }
 
 
+
 Grid.prototype.check = function(clickedSquare, color){
 	console.log("Current Location:"+clickedSquare);
 	//console.log("Checking availability of square");
@@ -43,10 +44,12 @@ Grid.prototype.check = function(clickedSquare, color){
 }
 
 Grid.prototype.update = function(clickedSquare, orb){
+	if(test)
+	{
 	console.log("In grid update");
 	console.log("cur location"+clickedSquare);
 	display();
-	//endConditionTest(orb);
+	endConditionTest(orb);
 	if((clickedSquare[0]<4) && (clickedSquare[1]<4))
 	{
 	if(this.gridStructure[clickedSquare[0]][clickedSquare[1]].length == 0)
@@ -79,11 +82,14 @@ Grid.prototype.update = function(clickedSquare, orb){
 		//}
 	}
 }
+}
 
 }
 
 Grid.prototype.checkSquareType = function(clickedSquare, orb)
 {
+	if(test)
+	{
 	if ((clickedSquare[0] == 0) || (clickedSquare[0] == this.xPosition) || (clickedSquare[0] == this.yPosition))
 	{
 		if ((clickedSquare[1] == 0) || (clickedSquare[1] == this.xPosition) || (clickedSquare[1] == this.yPosition))
@@ -104,11 +110,13 @@ Grid.prototype.checkSquareType = function(clickedSquare, orb)
 			grid.middle (clickedSquare, orb);
 		}
 	}
-
+}
 	//Stop condition
 }
 
 Grid.prototype.corner = function(clickedSquare, orb){
+	if(test)
+	{
 	if (clickedSquare[0] == 0){
 		if (clickedSquare[1] == 0){
 			var popObj = grid.gridStructure[clickedSquare[0]][clickedSquare[1]].pop();
@@ -134,9 +142,12 @@ Grid.prototype.corner = function(clickedSquare, orb){
 		}
 	}
 }
+}
 
 
 Grid.prototype.edge = function(clickedSquare, orb, r){
+	if(test)
+	{
 	if(this.gridStructure[clickedSquare[0]][clickedSquare[1]].length == 1){
 		this.gridStructure[clickedSquare[0]][clickedSquare[1]].push(orb);
 	}
@@ -175,9 +186,12 @@ Grid.prototype.edge = function(clickedSquare, orb, r){
 		}
 	}
 }
+}
 
 
 Grid.prototype.middle = function(clickedSquare, orb){
+	if(test)
+	{
 	if((this.gridStructure[clickedSquare[0]][clickedSquare[1]].length == 1)||(this.gridStructure[clickedSquare[0]][clickedSquare[1]].length == 2)){
 		this.gridStructure[clickedSquare[0]][clickedSquare[1]].push(orb);
 	}
@@ -190,6 +204,7 @@ Grid.prototype.middle = function(clickedSquare, orb){
 		grid.update([Number(clickedSquare[0])+Number(1), clickedSquare[1]], popObj1);
 		grid.update([Number(clickedSquare[0])-Number(1), clickedSquare[1]], popObj2);
 	}
+}
 }
 
 
