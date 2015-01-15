@@ -107,19 +107,20 @@ function endConditionTest(orb)
 
 function display()
 {
-	
+	var i;
+	var j;
 	var c = document.getElementById("myCanvas");
 	var ctx = c.getContext("2d");
 	ctx.font = "12px Ariel";
-	for(var i=0; i<=grid.yPosition; i++)
+	for(i=0; i<=grid.yPosition; i++)
 	{
-		for(var j=0; j<=grid.xPosition; j++)
+		for(j=0; j<=grid.xPosition; j++)
 		{
 			ctx.clearRect((0+(j*pady)), (0+(i*padx)), padx, pady);
 		}
 	}
 
-	for(var i=0; i<=400; i+=pady)
+	for(i=0; i<=400; i+=pady)
 	{
 		ctx.moveTo(0,i);
 		ctx.lineTo(400,i);
@@ -129,7 +130,7 @@ function display()
 	ctx.lineTo(400,400);
 	ctx.stroke();
 
-	for(var j=0; j<=400; j+=padx)
+	for(j=0; j<=400; j+=padx)
 	{
 		ctx.moveTo(j,0);
 		ctx.lineTo(j,400);
@@ -139,9 +140,9 @@ function display()
 	ctx.lineTo(400,400);
 	ctx.stroke();
 
-	for(var i=0; i<=grid.yPosition; i++)
+	for(i=0; i<=grid.yPosition; i++)
 	{
-		for(var j=0; j<=grid.xPosition; j++)
+		for(j=0; j<=grid.xPosition; j++)
 		{
 			ctx.textAlign = "start";
 			//alert(i +":"+ j);
@@ -161,9 +162,9 @@ function display()
 		}
 	}
 
-	for(var i=0; i<=grid.yPosition; i++)
+	for(i=0; i<=grid.yPosition; i++)
 	{
-		for(var j=0; j<=grid.xPosition; j++)
+		for(j=0; j<=grid.xPosition; j++)
 		{
 			ctx.textAlign = "start";
 			//ctx.fillText(grid.gridStructure[i][j].length, (10+(100*i)), ((j*100)+50));
@@ -187,17 +188,17 @@ function display()
 				grid.gridStructure[i][j].push(popObj);
 				ctx.font="20px Georgia";
 				ctx.fillText(grid.gridStructure[i][j].length, ((padx/2)-5+(padx*i)), ((j*pady)+(pady/2)+5));
+			}
 		}
-	}
 	console.log("bdhjgde");
+	}
 }
-}
 
 
 
 
 
-display();
+
 
 
 
@@ -225,22 +226,22 @@ function mDown()
 {
 		count = 0;
 		test = true;
-		if((padx == 0) || (pady == 0))
-		{
-			var c = document.getElementById("myCanvas");
-			var ctx = c.getContext("2d");
-			ctx.font = "12px Ariel";
-			for(var i=0; i<=grid.yPosition; i++)
-			{
-				for(var j=0; j<=grid.xPosition; j++)
-				{
-					ctx.clearRect((0+(j*pady)), (0+(i*padx)), padx, pady);
-				}
-			}
-			padx = 400/(grid.xPosition+1);
-			pady = 400/(grid.yPosition+1);
-			display();
-		}
+		// if((padx == 0) || (pady == 0))
+		// {
+		// 	var c = document.getElementById("myCanvas");
+		// 	var ctx = c.getContext("2d");
+		// 	ctx.font = "12px Ariel";
+		// 	for(var i=0; i<=grid.yPosition; i++)
+		// 	{
+		// 		for(var j=0; j<=grid.xPosition; j++)
+		// 		{
+		// 			ctx.clearRect((0+(j*pady)), (0+(i*padx)), padx, pady);
+		// 		}
+		// 	}
+		// 	padx = 400/(grid.xPosition+1);
+		// 	pady = 400/(grid.yPosition+1);
+		// 	display();
+		// }
 		if(count == 0)
 		{
 			aa = prompt("Enter no of columns(max allowed 8)");
@@ -266,6 +267,7 @@ function mDown()
   //   console.log(coords);
   //   control([Math.floor(x/100),Math.floor(y/100)]);
   //   console.log([Math.floor((y-10)/100),Math.floor((x-10)/100)]);
-
-		//display();
+  	padx = 400/(grid.xPosition+1);
+		pady = 400/(grid.yPosition+1);
+		display();
 }
