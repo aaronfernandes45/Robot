@@ -1,11 +1,11 @@
-function Grid(x,y){ // x and y are dimensions of the grid
-	this.xPosition = x-1;
-	this.yPosition = y-1;
+function Grid(){ // x and y are dimensions of the grid
+	this.xPosition=1;
+	this.yPosition=1;
 	this.gridStructure;
 
 	//this.gridStructure = [[[0,1],[0,1],[0,1],[0,1]],[0,1,2,3],[0,1,2,3],[0,1,2,3]];
 
-	this.gridStructure = [[[], [], [], []], [[], [], [],[]], [[], [], [], []], [[], [], [], []]];
+	this.gridStructure = [[[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]], [[],[],[],[],[],[],[],[]]];
 
 	// this.gridStructure = new Array(this.yPosition);
 	// for(var i = 0; i < this.yPosition; i++){
@@ -50,7 +50,7 @@ Grid.prototype.update = function(clickedSquare, orb){
 	console.log("cur location"+clickedSquare);
 	display();
 	endConditionTest(orb);
-	if((clickedSquare[0]<4) && (clickedSquare[1]<4))
+	if((clickedSquare[0]<=grid.xPosition) && (clickedSquare[1]<=grid.yPosition))
 	{
 	if(this.gridStructure[clickedSquare[0]][clickedSquare[1]].length == 0)
 	{
@@ -235,7 +235,7 @@ Player.prototype.add= function(clickedSquare)
 	}
 }
 
-var grid= new Grid(4,4);
+var grid= new Grid();
 var player1= new Player("red");
 var player2= new Player("blue");
 

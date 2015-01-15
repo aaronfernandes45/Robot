@@ -25,6 +25,11 @@
 
 }
 
+.but
+{
+	float: center;
+}
+
 .foot-info
 {
 	background-color: #ad3452;

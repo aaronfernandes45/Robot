@@ -1,6 +1,8 @@
 
 var count = 0;
 var test = true;
+var padx=0;
+var pady=0;
 function control(coord)
 {
 	if((count % 2)==0)
@@ -105,6 +107,7 @@ function endConditionTest(orb)
 
 function display()
 {
+	
 	var c = document.getElementById("myCanvas");
 	var ctx = c.getContext("2d");
 	ctx.font = "12px Ariel";
@@ -112,29 +115,36 @@ function display()
 	{
 		for(var j=0; j<=grid.xPosition; j++)
 		{
-			ctx.clearRect((0+(j*100)), (0+(i*100)), 100, 100);
+			ctx.clearRect((0+(j*pady)), (0+(i*padx)), padx, pady);
 		}
 	}
 
-	for(var i=0; i<=400; i+=100)
+	for(var i=0; i<=400; i+=pady)
 	{
 		ctx.moveTo(0,i);
 		ctx.lineTo(400,i);
 		ctx.stroke();
 	}
+	ctx.moveTo(0,400);
+	ctx.lineTo(400,400);
+	ctx.stroke();
 
-	for(var j=0; j<=400; j+=100)
+	for(var j=0; j<=400; j+=padx)
 	{
 		ctx.moveTo(j,0);
 		ctx.lineTo(j,400);
 		ctx.stroke();
 	}
+	ctx.moveTo(400,0);
+	ctx.lineTo(400,400);
+	ctx.stroke();
 
 	for(var i=0; i<=grid.yPosition; i++)
 	{
 		for(var j=0; j<=grid.xPosition; j++)
 		{
 			ctx.textAlign = "start";
+			//alert(i +":"+ j);
 			//ctx.fillText(grid.gridStructure[i][j].length, (10+(100*i)), ((j*100)+50));
 			if(grid.gridStructure[i][j].length > 0)
 			{
@@ -142,7 +152,7 @@ function display()
 				
 				
 				ctx.fillStyle = popObj.color;
-				ctx.fillRect((i*100)+5, (j*100)+5, 90, 90);
+				ctx.fillRect((i*padx)+5, (j*pady)+5, padx-10, pady-10);
 				//ctx.fillText(popObj.color, (10+(100*i)), ((j*100)+65));
 				console.log(popObj.color);
 				grid.gridStructure[i][j].push(popObj);
@@ -176,7 +186,7 @@ function display()
 				//ctx.fillText(grid.gridStructure[i][j].length, (45+(100*i)), ((j*100)+55));
 				grid.gridStructure[i][j].push(popObj);
 				ctx.font="20px Georgia";
-				ctx.fillText(grid.gridStructure[i][j].length, (45+(100*i)), ((j*100)+55));
+				ctx.fillText(grid.gridStructure[i][j].length, ((padx/2)-5+(padx*i)), ((j*pady)+(pady/2)+5));
 		}
 	}
 	console.log("bdhjgde");
@@ -193,31 +203,69 @@ display();
 
 function showCoords(evt) 
 {
+    //display();
+    //mDown();
+    
     console.log("In onclick handler");
     var x = evt.pageX - 100; //var x = event.clientX - 100;
     var y = evt.pageY - 227;
     var coords = "X coords: " + x + ", Y coords: " + y;
     console.log(coords);
-    control([Math.floor(x/100),Math.floor(y/100)]);
+    control([Math.floor(x/padx),Math.floor(y/pady)]);
     console.log([Math.floor((y-10)/100),Math.floor((x-10)/100)]);
     display();
 }
 
 
 
+var aa;
+var bb;
 
-
-function mDown(evt)
+function mDown()
 {
-	if(test)
-	{
-		showCoords(evt);
+		count = 0;
+		test = true;
+		if((padx == 0) || (pady == 0))
+		{
+			var c = document.getElementById("myCanvas");
+			var ctx = c.getContext("2d");
+			ctx.font = "12px Ariel";
+			for(var i=0; i<=grid.yPosition; i++)
+			{
+				for(var j=0; j<=grid.xPosition; j++)
+				{
+					ctx.clearRect((0+(j*pady)), (0+(i*padx)), padx, pady);
+				}
+			}
+			padx = 400/(grid.xPosition+1);
+			pady = 400/(grid.yPosition+1);
+			display();
+		}
+		if(count == 0)
+		{
+			aa = prompt("Enter no of columns(max allowed 8)");
+			if(aa>8)
+			{
+				aa = 8;
+			}
+			bb = prompt("Enter no of rows(max allowed 8");
+			if(bb>8)
+			{
+				bb=8;
+			}
+			alert("Xpos: " + aa + "YPos:" + bb);
+			grid.xPosition = aa-1;
+			grid.yPosition = bb-1;
+			alert("Xposition: " + grid.xPosition + "YPos:" + grid.yPosition);
+		}
+		
+		//showCoords(evt);
 		// var x = event.clientX - 100; //var x = event.clientX - 100;
   //   var y = event.clientY - 77;
   //   var coords = "X coords: " + x + ", Y coords: " + y;
   //   console.log(coords);
   //   control([Math.floor(x/100),Math.floor(y/100)]);
   //   console.log([Math.floor((y-10)/100),Math.floor((x-10)/100)]);
-		display();
-	}
+
+		//display();
 }
