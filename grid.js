@@ -1,7 +1,7 @@
 function Grid(rows, columns){ // x and y are dimensions of the grid
 	this.rows=1;
 	this.columns=1;
-	this.gridStructure;
+	this.gridStructure = [];
 
 	if(rows){
 		this.rows = rows;
