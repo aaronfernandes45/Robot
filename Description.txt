@@ -1,0 +1,11 @@
+Chain Reaction is a strategy game for multiple players 
+The aim is to take control of the board by eliminating the opponent's orbs.
+Players place their orbs in the cells by turns. 
+Each cell however, has a limit for maximum number of orbs.
+The limit depends on the type of cell you choose 
+The corners have two adjacent cells only, hence their limit would be 2. 
+Similarly, the limit for edge cells (excluding corners) is 3 and 4 for cells in the middle 
+Once a cell reaches it's limit, placing an orb into it would result the cell to pop into it's adjacent cells 
+This would result in adding an extra orb to those adjacent cells and claiming it for the player 
+A player may place an orb only in a blank cell or a cell containing their orb. 
+A player loses once they lose all their orbs
