@@ -32,15 +32,15 @@
 
 <body>
 	
-	<h1 id="test-header " class = "head-info">CHAIN REACTION</h1>
+	<h1 id="test-header " class = "head-info">Chain reaction</h1>
 	
-	<p class="para para2" >This is a test para.<br> This is a test sentence.<br> Another test sentence here</p>
+	<p class="para para2" >Chain Reaction is a strategy game for multiple players <br> The aim is to take control of the board by eliminating the opponent's orbs.<br> Players place their orbs in the cells by turns. <br> Each cell however, has a limit for maximum number of orbs.<br>The limit depends on the type of cell you choose <br> The corners have two adjacent cells only, hence their limit would be 2. <br> Similarly, the limit for edge cells (excluding corners) is 3 and 4 for cells in the middle <br> Once a cell reaches it's limit, placing an orb into it would pop the cell into it's adjacent cells <br>This would result in adding an extra orb to those adjacent cells and claiming it for the player <br> A player may place an orb only in a blank cell or a cell containing their orb. <br> A player loses once they lose all their orbs</p>
 
 	<canvas class = "mainCanvas padding" id="myCanvas"  width="400" height="400"
-	style="border:1px solid #ffffff;" onclick="mDown()">
+	style="border:1px solid #ffffff;" onmousedown="mDown(event)">
 	Your browser does not support the HTML5 canvas tag.</canvas>
 
-	<h3 class = "head-info"> DEVELOPER CREDIT SECTION</h3>
+	<h3 class = "foot-info"> DEVELOPER CREDIT SECTION</h3>
 	
 	
 	<script type="text/javascript" src = "grid.js"></script>

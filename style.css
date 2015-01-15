@@ -4,13 +4,30 @@
 
 .para2
 {
-	font-size: 30px;
+	font-size: 22px;
 }
 
 .head-info
 {
-	background-color: #d4f1cc;
-	text-align: center;
+	/*background-color: #FD9801;*/
+	background: -webkit-linear-gradient(red, blue); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(red, blue); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(red, blue); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(red, blue); /* Standard syntax (must be last) */
+	padding-left: 2cm;
+	padding-top: 75px;
+	padding-bottom: 75px;
+	margin-left: 0px;
+	color: #49FD01;
+	margin-left: 0em;
+	margin-right: 0em;
+
+}
+
+.foot-info
+{
+	background-color: #ad3452;
+	font-size: 20px
 }
 
 .padding
