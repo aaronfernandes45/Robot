@@ -7,23 +7,7 @@
 
 <link rel="stylesheet" type="text/css" href="style.css">
 <style type="text/css">
-/*<!--
-	body{
-		margin: 10px;
-		padding: 10px;
-		border: 1px solid black;
-	}
-	
-	#myCanvas.mainCanvas{
-		background-color: red;
-	}
 
-
-	div.header{
-		padding: 0px 10px;
-		background-color: #eee;
-	}
-	-->*/
 </style>
 
 
@@ -40,15 +24,22 @@
 	style="border:1px solid #ffffff;" onmousedown="showCoords(event)">
 	Your browser does not support the HTML5 canvas tag.</canvas>
 
+	<div class = "nav">
 	<p class="para para2" >Chain Reaction is a strategy game for multiple players <br> The aim is to take control of the board by eliminating the opponent's orbs.<br> Players place their orbs in the cells by turns. <br> Each cell however, has a limit for maximum number of orbs.<br>The limit depends on the type of cell you choose <br> The corners have two adjacent cells only, hence their limit would be 2. <br> Similarly, the limit for edge cells (excluding corners) is 3 and 4 for cells in the middle <br> Once a cell reaches it's limit, placing an orb into it would pop the cell into it's adjacent cells <br>This would result in adding an extra orb to those adjacent cells and claiming it for the player <br> A player may place an orb only in a blank cell or a cell containing their orb. <br> A player loses once they lose all their orbs<br>
 	<br>
 	<br>
 
-	<button type="button" onclick="mDown()" class="but">Start</button>
+	<input type="text" id="columnInput" class="text" autofocus value = "Enter square dimension (max 8)" />
+	<br>
+	<br>
 
+	<button id="myButton" type="button" onclick="mDown()" class="but">Start</button>
+	
 	</p>
+	</div>
 
 	<h3 class = "foot-info"> DEVELOPER CREDIT SECTION</h3>
+	<h6>More credits</h6>
 	
 	
 	<script type="text/javascript" src = "grid.js"></script>

@@ -10,18 +10,20 @@
 .head-info
 {
 	/*background-color: #FD9801;*/
-	font-style: italic;
-	background: -webkit-linear-gradient(red, blue); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(red, blue); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(red, blue); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(black, gray, white); /* Standard syntax (must be last) */
+	/*font-style: italic;*/
+	/*background: -webkit-linear-gradient(red, blue);*/ /* For Safari 5.1 to 6.0 */
+    /*background: -o-linear-gradient(red, blue);*/ /* For Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient(red, blue);*/ /* For Firefox 3.6 to 15 */
+    /*background: linear-gradient(black, white);*/ /* Standard syntax (must be last) */
+    background-color: black;
 	padding-left: 2cm;
 	padding-top: 75px;
 	padding-bottom: 75px;
 	margin-left: 0px;
-	color: black;
-	margin-left: 0em;
-	margin-right: 0em;
+	color: white;
+	margin-left: 0cm;
+	margin-right: 0cm;
+	margin-bottom: 0cm;
 
 }
 
@@ -32,11 +34,31 @@
 
 .foot-info
 {
-	background-color: #ad3452;
-	font-size: 20px
+	background-color: #000000; /*CEF4AD*/
+	color: gray;
+	font-size: 20px;
+	padding-top: 50px;
+	padding-bottom: 50px;
 }
 
 .padding
 {
 	padding-left: 100px;
+	padding-top: 50px;
+}
+
+.text
+{
+	width: 200px;
+}
+
+.nav
+{
+	padding-top: 1cm;
+	padding-bottom: 64px;
+	background-color:#eeeeee;
+	float:right;
+	padding-left: 0.5cm;
+	margin-top: 0cm;
+	margin-bottom: 0cm;
 }
